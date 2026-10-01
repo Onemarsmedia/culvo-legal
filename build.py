@@ -87,16 +87,32 @@ free = values["Store.freeDeletesPerDay"]
 email = values["contactEmail"]
 SUPPORT = [
     ("Need a hand?", f'Email <a href="mailto:{email}">{email}</a>. We usually reply within 2 working days.'),
+    # Using Culvo
+    ("What is Culvo?", "An iPhone app that cleans your camera roll by swiping. Post it or toss it."),
+    ("How does it work?", "Culvo shows your photos one at a time, newest first. Swipe right to keep, left to toss. Tossed photos wait in a toss pile until you delete them, and Undo takes back your last swipe."),
+    ("What is Bursts?", "Bursts finds series of near-identical shots, like the 12 photos you took to get one good one. Culvo picks the best shot on your iPhone, and you choose to keep the best and toss the rest. Part of Culvo Pro."),
+    ("What is Ready to post?", "Photos you keep go into a “Culvo – Ready to post” album in your Photos app, so your best shots are in one place. In Culvo Pro you can pick some and share them straight to Instagram, TikTok or anywhere else."),
+    ("Can I clear out just screenshots?", "Yes. Tap Screenshots at the top to sort only your screenshots: receipts, memes, old chats."),
+    ("Will Culvo remember where I left off?", "Yes. Photos you've already sorted don't come back, and your toss pile is saved. When you've been through everything, tap Start over to go again."),
+    # Your photos
     ("Does Culvo upload my photos?", "No. Everything happens on your iPhone. Your photos never leave it."),
+    ("Will Culvo delete anything without asking?", "Never. Nothing is deleted until you tap Delete, and iOS always shows its own confirmation first."),
     ("I deleted something by mistake.", "Open the Photos app, go to Albums, then Recently Deleted. iOS keeps deleted photos there for 30 days, and you can restore them from there."),
+    ("I use iCloud Photos. Anything I should know?", "Culvo works with iCloud Photos, and photos stored only in iCloud are downloaded so you can see them. Deleting a photo removes it from every device that uses iCloud Photos, just like deleting it in the Photos app."),
     ("Why does Culvo need access to my photos?", "To show them to you one by one. With limited access, Culvo can only sort the photos you have selected."),
+    # Culvo Pro
     ("Is Culvo free?", f"You can delete up to {free} photos a day for free. Culvo Pro removes the limit: £24.99 a year with a 7 day free trial, or £4.99 a month."),
     ("How do I cancel my subscription?", "Open Settings on your iPhone, tap your name, then Subscriptions, then Culvo, then Cancel Subscription."),
+    ("I already paid. How do I get Pro back on a new phone?", "In Culvo, tap the culvo. logo at the top, then Restore purchases."),
     ("Is there a weekly plan?", "No, and there never will be."),
+    # Availability
+    ("Which iPhones does Culvo work on?", "Any iPhone with iOS 18 or later."),
+    ("Is there an Android version?", "Not yet. Culvo is iPhone only for now."),
+    ("When can I get Culvo?", 'Culvo is in testing. Join the waitlist at <a href="https://culvo.app">culvo.app</a> and we\'ll let you know.'),
 ]
 (SITE / "support").mkdir(exist_ok=True)
 (SITE / "support" / "index.html").write_text(PAGE.format(
-    title="Support",
+    title="Support &amp; FAQ",
     body="\n".join(f"<h2>{html.escape(h)}</h2>\n<p>{t}</p>" for h, t in SUPPORT),
     extra="", company=values["company"], updated=updated))
 
