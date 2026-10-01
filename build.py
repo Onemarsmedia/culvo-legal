@@ -68,7 +68,7 @@ PAGE = """<!doctype html>
 {body}
 {extra}
 <footer>{company} · Last updated {updated}<br>
-<a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms of use</a></footer>
+<a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms of use</a> · <a href="../support/">Support</a></footer>
 </main>
 </body>
 </html>
@@ -82,7 +82,25 @@ for slug, name, title, extra in [
     (SITE / slug / "index.html").write_text(PAGE.format(
         title=title, body=sections(name), extra=extra, company=values["company"], updated=updated))
 
+# Support page (App Store "Support URL"). Plain copy, kept in step with docs/launch/05_Support_Page.md.
+free = values["Store.freeDeletesPerDay"]
+email = values["contactEmail"]
+SUPPORT = [
+    ("Need a hand?", f'Email <a href="mailto:{email}">{email}</a>. We usually reply within 2 working days.'),
+    ("Does Culvo upload my photos?", "No. Everything happens on your iPhone. Your photos never leave it."),
+    ("I deleted something by mistake.", "Open the Photos app, go to Albums, then Recently Deleted. iOS keeps deleted photos there for 30 days, and you can restore them from there."),
+    ("Why does Culvo need access to my photos?", "To show them to you one by one. With limited access, Culvo can only sort the photos you have selected."),
+    ("Is Culvo free?", f"You can delete up to {free} photos a day for free. Culvo Pro removes the limit: £24.99 a year with a 7 day free trial, or £4.99 a month."),
+    ("How do I cancel my subscription?", "Open Settings on your iPhone, tap your name, then Subscriptions, then Culvo, then Cancel Subscription."),
+    ("Is there a weekly plan?", "No, and there never will be."),
+]
+(SITE / "support").mkdir(exist_ok=True)
+(SITE / "support" / "index.html").write_text(PAGE.format(
+    title="Support",
+    body="\n".join(f"<h2>{html.escape(h)}</h2>\n<p>{t}</p>" for h, t in SUPPORT),
+    extra="", company=values["company"], updated=updated))
+
 (SITE / "index.html").write_text(
     '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=https://culvo.app">'
     '<title>Culvo</title><a href="https://culvo.app">culvo.app</a>\n')
-print("Built privacy/ and terms/")
+print("Built privacy/, terms/ and support/")
