@@ -21,8 +21,8 @@ values = {
     "company": constant("company"),
     "contactEmail": constant("contactEmail"),
     "companyDetails": constant("companyDetails"),
-    "Store.freeDeletesPerDay": re.search(
-        r"freeDeletesPerDay = (\d+)", (ROOT / "Culvo" / "Store.swift").read_text()).group(1),
+    "Store.freeBiggestTaster": re.search(
+        r"freeBiggestTaster = (\d+)", (ROOT / "Culvo" / "Store.swift").read_text()).group(1),
 }
 updated = constant("lastUpdated")
 eula = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
@@ -91,7 +91,6 @@ for slug, name, title, extra in [
         title=title, body=sections(name), extra=extra, company=values["company"], company_details=html.escape(values["companyDetails"]), updated=updated))
 
 # Support page (App Store "Support URL"). Plain copy, kept in step with docs/launch/05_Support_Page.md.
-free = values["Store.freeDeletesPerDay"]
 email = values["contactEmail"]
 SUPPORT = [
     ("Need a hand?", f'Email <a href="mailto:{email}">{email}</a>. We usually reply within 2 working days.'),
@@ -109,7 +108,7 @@ SUPPORT = [
     ("I use iCloud Photos. Anything I should know?", "Culvo works with iCloud Photos, and photos stored only in iCloud are downloaded so you can see them. Deleting a photo removes it from every device that uses iCloud Photos, just like deleting it in the Photos app."),
     ("Why does Culvo need access to my photos?", "To show them to you one by one. With limited access, Culvo can only sort the photos you have selected."),
     # Culvo Pro
-    ("Is Culvo free?", f"You can delete up to {free} photos a day for free. Culvo Pro removes the limit: £24.99 a year with a 7 day free trial, or £4.99 a month."),
+    ("Is Culvo free?", "Yes. Swiping and deleting are free with no daily limit. Culvo Pro adds Biggest first, Best of the burst and Ready to post: £24.99 a year with a 7 day free trial, or £4.99 a month."),
     ("How do I cancel my subscription?", "Open Settings on your iPhone, tap your name, then Subscriptions, then Culvo, then Cancel Subscription."),
     ("I already paid. How do I get Pro back on a new phone?", "In Culvo, tap the culvo. logo at the top, then Restore purchases."),
     ("Is there a weekly plan?", "No, and there never will be."),
