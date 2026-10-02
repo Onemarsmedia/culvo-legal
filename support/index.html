@@ -14,13 +14,17 @@
   h1 { font-size: 40px; line-height: 1.1; margin: 40px 0 8px; }
   h2 { font-size: 20px; margin: 32px 0 6px; }
   p { color: var(--muted); margin: 0; }
-  a { color: var(--lime); }
-  footer { margin-top: 48px; color: rgba(244,244,242,.45); font-size: 14px; }
+  a { color: var(--lime); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--lime); color: #0B0B0C; padding: 8px 12px; border-radius: 8px; font-weight: 700; }
+  .skip:focus { left: 12px; }
+  footer { margin-top: 48px; color: rgba(244,244,242,.72); font-size: 14px; line-height: 1.9; }
 </style>
 </head>
 <body>
-<main>
-<a class="mark" href="https://culvo.app">culvo<span>.</span></a>
+<a class="skip" href="#content">Skip to content</a>
+<header><a class="mark" href="https://culvo.app" aria-label="Culvo home">culvo<span aria-hidden="true">.</span></a></header>
+<main id="content">
 <h1>Support &amp; FAQ</h1>
 <h2>Need a hand?</h2>
 <p>Email <a href="mailto:hello@culvo.app">hello@culvo.app</a>. We usually reply within 2 working days.</p>
@@ -37,7 +41,7 @@
 <h2>Will Culvo remember where I left off?</h2>
 <p>Yes. Photos you've already sorted don't come back, and your toss pile is saved. When you've been through everything, tap Start over to go again.</p>
 <h2>Does Culvo upload my photos?</h2>
-<p>No. Everything happens on your iPhone. Your photos never leave it.</p>
+<p>No. Culvo sorts everything on your iPhone and never uploads your photos. (If you use iCloud Photos, Apple syncs them as usual.)</p>
 <h2>Will Culvo delete anything without asking?</h2>
 <p>Never. Nothing is deleted until you tap Delete, and iOS always shows its own confirmation first.</p>
 <h2>I deleted something by mistake.</h2>
@@ -61,8 +65,8 @@
 <h2>When can I get Culvo?</h2>
 <p>Culvo is in testing. Join the waitlist at <a href="https://culvo.app">culvo.app</a> and we'll let you know.</p>
 
-<footer>Onemarsmedia Limited · Last updated 1 October 2026<br>
-<a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms of use</a> · <a href="../support/">Support</a></footer>
 </main>
+<footer>Onemarsmedia Limited, a private limited company registered in England and Wales (company number 16127972, VAT number GB 519 7870 47), registered office 196 Ash Grove, Hounslow, England, TW5 9DT<br>Last updated 2 October 2026<br>
+<nav aria-label="Legal"><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../refunds/">Refunds</a> · <a href="../cookies/">Cookies</a> · <a href="../accessibility/">Accessibility</a> · <a href="../support/">Support</a></nav></footer>
 </body>
 </html>

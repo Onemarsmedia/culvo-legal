@@ -14,35 +14,47 @@
   h1 { font-size: 40px; line-height: 1.1; margin: 40px 0 8px; }
   h2 { font-size: 20px; margin: 32px 0 6px; }
   p { color: var(--muted); margin: 0; }
-  a { color: var(--lime); }
-  footer { margin-top: 48px; color: rgba(244,244,242,.45); font-size: 14px; }
+  a { color: var(--lime); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--lime); color: #0B0B0C; padding: 8px 12px; border-radius: 8px; font-weight: 700; }
+  .skip:focus { left: 12px; }
+  footer { margin-top: 48px; color: rgba(244,244,242,.72); font-size: 14px; line-height: 1.9; }
 </style>
 </head>
 <body>
-<main>
-<a class="mark" href="https://culvo.app">culvo<span>.</span></a>
+<a class="skip" href="#content">Skip to content</a>
+<header><a class="mark" href="https://culvo.app" aria-label="Culvo home">culvo<span aria-hidden="true">.</span></a></header>
+<main id="content">
 <h1>Privacy policy</h1>
 <h2>The short version</h2>
-<p>Your photos never leave your iPhone. Culvo has no accounts, no servers, no ads and no analytics. We don&#x27;t collect your personal data.</p>
+<p>The Culvo app collects no personal data. Your photos are sorted on your iPhone and Culvo never uploads them. There are no accounts, ads, trackers or analytics in the app. Outside the app, we only hold what you choose to give us: your email address if you join the waitlist, and your messages if you email us.</p>
 <h2>Who we are</h2>
-<p>Culvo is made by Onemarsmedia Limited, a UK company. If you have a question about privacy, email <a href="mailto:hello@culvo.app">hello@culvo.app</a>.</p>
-<h2>Your photos</h2>
-<p>Culvo asks for access to your photo library so it can show you your photos and help you sort them. Everything happens on your iPhone, including picking the best shot in a burst, which uses Apple&#x27;s on-device Vision technology. Your photos are never uploaded, copied to a server, or seen by us.</p>
-<h2>Deleting photos</h2>
-<p>Culvo never deletes a photo on its own. When you tap Delete, iOS shows its own confirmation, and deleted photos stay in Recently Deleted in the Photos app for 30 days.</p>
-<h2>What&#x27;s stored on your iPhone</h2>
-<p>To remember your progress, Culvo keeps a small file on your iPhone with the IDs of the photos you&#x27;ve already sorted, your toss pile, how much space you&#x27;ve freed, and how many free deletes you&#x27;ve used today. It doesn&#x27;t contain your photos, and it&#x27;s removed if you delete the app. Kept photos are added to a “Culvo – Ready to post” album in your own Photos library.</p>
-<h2>Sharing</h2>
-<p>If you share photos from Ready to post, iOS&#x27;s own share sheet opens and you choose where they go. Culvo doesn&#x27;t send them anywhere itself.</p>
-<h2>Subscriptions</h2>
-<p>Culvo Pro is bought through Apple. Apple handles the payment; we never see your card details or Apple ID. Apple tells the app whether your subscription is active.</p>
+<p>Culvo is made by Onemarsmedia Limited, a private limited company registered in England and Wales (company number 16127972, VAT number GB 519 7870 47), registered office 196 Ash Grove, Hounslow, England, TW5 9DT. We are the &quot;controller&quot; of the personal data described here. Questions or requests about your data: email <a href="mailto:hello@culvo.app">hello@culvo.app</a>.</p>
+<h2>The app: your photos</h2>
+<p>Culvo asks for access to your photo library so it can show you your photos and help you sort them. Everything happens on your iPhone, including picking the best shot in a burst, which uses Apple&#x27;s on-device Vision technology. Your photos are never uploaded, copied to our servers, or seen by us. If you use iCloud Photos, Apple may download a photo from iCloud so you can see it; that happens between your iPhone and Apple.</p>
+<h2>The app: what&#x27;s stored on your iPhone</h2>
+<p>To remember your progress, Culvo keeps a small file and a few settings on your iPhone: the IDs of photos you&#x27;ve already sorted, your toss pile, how much space you&#x27;ve freed, your level and achievements, and how many free deletes you&#x27;ve used today. None of this contains your photos, none of it is sent to us, and it&#x27;s removed if you delete the app. Kept photos are added to a &quot;Culvo – Ready to post&quot; album in your own Photos library.</p>
+<h2>The app: deleting and sharing</h2>
+<p>Culvo never deletes a photo on its own. When you tap Delete, iOS shows its own confirmation, and deleted photos stay in Recently Deleted for 30 days. If you use iCloud Photos, deleting removes the photo from all your devices, as it does in the Photos app. If you share from Ready to post, iOS&#x27;s share sheet opens and you choose where photos go; Culvo doesn&#x27;t send them anywhere itself.</p>
+<h2>The app: subscriptions</h2>
+<p>Culvo Pro is bought through Apple. Apple handles payment as its own controller; we never see your name, card details or Apple ID. Apple tells the app, on your iPhone, whether your subscription is active. We receive only Apple&#x27;s anonymous, combined sales reports.</p>
+<h2>The waitlist</h2>
+<p>If you join the waitlist on culvo.app we collect your email address and, if you choose to answer, what you shoot most. We use them to tell you when Culvo launches, give you early access and send occasional updates about Culvo. Our lawful basis is your consent. Every email has an unsubscribe link, and you can withdraw consent any time by emailing us. We keep waitlist details until you unsubscribe, or until 12 months after launch, whichever comes first, then delete them. The form is run by Tally BV (Belgium) on our behalf.</p>
+<h2>Emails to us</h2>
+<p>If you email <a href="mailto:hello@culvo.app">hello@culvo.app</a>, we use your email address and message to reply and to help you (our lawful basis: legitimate interests in supporting our customers). We keep support emails for up to 2 years, then delete them. Our address forwards through Porkbun LLC (USA) to our mailbox.</p>
+<h2>Our websites</h2>
+<p>culvo.app is hosted by Framer B.V. (Netherlands), which provides basic, combined visit statistics. Our legal and support pages are hosted on GitHub Pages (GitHub, Inc., USA). Like most hosts, these providers briefly process technical data such as IP addresses to deliver the pages and keep them secure. See our cookie policy for details.</p>
+<h2>Who sees your data</h2>
+<p>Only us and the service providers named above, who act on our instructions under contract (Tally, Framer, GitHub, Porkbun and our email provider). We never sell or rent your data, and we don&#x27;t use it for advertising or profiling. Some providers are in the USA; where your data leaves the UK, we rely on UK adequacy regulations (including the UK–US &quot;data bridge&quot;) or the UK&#x27;s approved contract clauses.</p>
+<h2>Your rights</h2>
+<p>You can ask us for a copy of your data, to correct it, to delete it, to restrict or object to how we use it, or to move it, and you can withdraw consent at any time. Email <a href="mailto:hello@culvo.app">hello@culvo.app</a>; we&#x27;ll reply within one month. If you&#x27;re unhappy, you can complain to the Information Commissioner&#x27;s Office (ico.org.uk, 0303 123 1113). If you live in the EU, you can contact your local data protection authority.</p>
 <h2>Children</h2>
-<p>Culvo isn&#x27;t aimed at children under 13 and doesn&#x27;t knowingly collect any data from them (or anyone else).</p>
+<p>Culvo isn&#x27;t aimed at children under 13, and the waitlist is for people aged 13 and over. The app itself collects no data from anyone.</p>
 <h2>Changes</h2>
-<p>If this policy changes, we&#x27;ll update it here and change the date below.</p>
+<p>If this policy changes, we&#x27;ll update this page and the date below. If a change matters, for example the app starts collecting data, we&#x27;ll tell you in the app before it happens.</p>
 
-<footer>Onemarsmedia Limited · Last updated 1 October 2026<br>
-<a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms of use</a> · <a href="../support/">Support</a></footer>
 </main>
+<footer>Onemarsmedia Limited, a private limited company registered in England and Wales (company number 16127972, VAT number GB 519 7870 47), registered office 196 Ash Grove, Hounslow, England, TW5 9DT<br>Last updated 2 October 2026<br>
+<nav aria-label="Legal"><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../refunds/">Refunds</a> · <a href="../cookies/">Cookies</a> · <a href="../accessibility/">Accessibility</a> · <a href="../support/">Support</a></nav></footer>
 </body>
 </html>

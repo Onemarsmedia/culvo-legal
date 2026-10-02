@@ -20,6 +20,7 @@ def constant(name):
 values = {
     "company": constant("company"),
     "contactEmail": constant("contactEmail"),
+    "companyDetails": constant("companyDetails"),
     "Store.freeDeletesPerDay": re.search(
         r"freeDeletesPerDay = (\d+)", (ROOT / "Culvo" / "Store.swift").read_text()).group(1),
 }
@@ -57,19 +58,23 @@ PAGE = """<!doctype html>
   h1 {{ font-size: 40px; line-height: 1.1; margin: 40px 0 8px; }}
   h2 {{ font-size: 20px; margin: 32px 0 6px; }}
   p {{ color: var(--muted); margin: 0; }}
-  a {{ color: var(--lime); }}
-  footer {{ margin-top: 48px; color: rgba(244,244,242,.45); font-size: 14px; }}
+  a {{ color: var(--lime); text-underline-offset: 3px; }}
+  a:focus-visible {{ outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 4px; }}
+  .skip {{ position: absolute; left: -999px; top: 8px; background: var(--lime); color: #0B0B0C; padding: 8px 12px; border-radius: 8px; font-weight: 700; }}
+  .skip:focus {{ left: 12px; }}
+  footer {{ margin-top: 48px; color: rgba(244,244,242,.72); font-size: 14px; line-height: 1.9; }}
 </style>
 </head>
 <body>
-<main>
-<a class="mark" href="https://culvo.app">culvo<span>.</span></a>
+<a class="skip" href="#content">Skip to content</a>
+<header><a class="mark" href="https://culvo.app" aria-label="Culvo home">culvo<span aria-hidden="true">.</span></a></header>
+<main id="content">
 <h1>{title}</h1>
 {body}
 {extra}
-<footer>{company} · Last updated {updated}<br>
-<a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms of use</a> · <a href="../support/">Support</a></footer>
 </main>
+<footer>{company_details}<br>Last updated {updated}<br>
+<nav aria-label="Legal"><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../refunds/">Refunds</a> · <a href="../cookies/">Cookies</a> · <a href="../accessibility/">Accessibility</a> · <a href="../support/">Support</a></nav></footer>
 </body>
 </html>
 """
@@ -77,10 +82,13 @@ PAGE = """<!doctype html>
 for slug, name, title, extra in [
     ("privacy", "privacy", "Privacy policy", ""),
     ("terms", "terms", "Terms of use", f'<h2>Licence</h2>\n<p><a href="{eula}">Apple\'s standard licence agreement</a></p>'),
+    ("refunds", "refunds", "Cancellations and refunds", ""),
+    ("cookies", "cookies", "Cookie policy", ""),
+    ("accessibility", "accessibility", "Accessibility", ""),
 ]:
     (SITE / slug).mkdir(exist_ok=True)
     (SITE / slug / "index.html").write_text(PAGE.format(
-        title=title, body=sections(name), extra=extra, company=values["company"], updated=updated))
+        title=title, body=sections(name), extra=extra, company=values["company"], company_details=html.escape(values["companyDetails"]), updated=updated))
 
 # Support page (App Store "Support URL"). Plain copy, kept in step with docs/launch/05_Support_Page.md.
 free = values["Store.freeDeletesPerDay"]
@@ -95,7 +103,7 @@ SUPPORT = [
     ("Can I clear out just screenshots?", "Yes. Tap Screenshots at the top to sort only your screenshots: receipts, memes, old chats."),
     ("Will Culvo remember where I left off?", "Yes. Photos you've already sorted don't come back, and your toss pile is saved. When you've been through everything, tap Start over to go again."),
     # Your photos
-    ("Does Culvo upload my photos?", "No. Everything happens on your iPhone. Your photos never leave it."),
+    ("Does Culvo upload my photos?", "No. Culvo sorts everything on your iPhone and never uploads your photos. (If you use iCloud Photos, Apple syncs them as usual.)"),
     ("Will Culvo delete anything without asking?", "Never. Nothing is deleted until you tap Delete, and iOS always shows its own confirmation first."),
     ("I deleted something by mistake.", "Open the Photos app, go to Albums, then Recently Deleted. iOS keeps deleted photos there for 30 days, and you can restore them from there."),
     ("I use iCloud Photos. Anything I should know?", "Culvo works with iCloud Photos, and photos stored only in iCloud are downloaded so you can see them. Deleting a photo removes it from every device that uses iCloud Photos, just like deleting it in the Photos app."),
@@ -114,9 +122,9 @@ SUPPORT = [
 (SITE / "support" / "index.html").write_text(PAGE.format(
     title="Support &amp; FAQ",
     body="\n".join(f"<h2>{html.escape(h)}</h2>\n<p>{t}</p>" for h, t in SUPPORT),
-    extra="", company=values["company"], updated=updated))
+    extra="", company=values["company"], company_details=html.escape(values["companyDetails"]), updated=updated))
 
 (SITE / "index.html").write_text(
     '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=https://culvo.app">'
     '<title>Culvo</title><a href="https://culvo.app">culvo.app</a>\n')
-print("Built privacy/, terms/ and support/")
+print("Built privacy/, terms/, refunds/, cookies/, accessibility/ and support/")

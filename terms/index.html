@@ -14,32 +14,48 @@
   h1 { font-size: 40px; line-height: 1.1; margin: 40px 0 8px; }
   h2 { font-size: 20px; margin: 32px 0 6px; }
   p { color: var(--muted); margin: 0; }
-  a { color: var(--lime); }
-  footer { margin-top: 48px; color: rgba(244,244,242,.45); font-size: 14px; }
+  a { color: var(--lime); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--lime); color: #0B0B0C; padding: 8px 12px; border-radius: 8px; font-weight: 700; }
+  .skip:focus { left: 12px; }
+  footer { margin-top: 48px; color: rgba(244,244,242,.72); font-size: 14px; line-height: 1.9; }
 </style>
 </head>
 <body>
-<main>
-<a class="mark" href="https://culvo.app">culvo<span>.</span></a>
+<a class="skip" href="#content">Skip to content</a>
+<header><a class="mark" href="https://culvo.app" aria-label="Culvo home">culvo<span aria-hidden="true">.</span></a></header>
+<main id="content">
 <h1>Terms of use</h1>
+<h2>Who we are</h2>
+<p>Culvo is provided by Onemarsmedia Limited, a private limited company registered in England and Wales (company number 16127972, VAT number GB 519 7870 47), registered office 196 Ash Grove, Hounslow, England, TW5 9DT. Contact us at <a href="mailto:hello@culvo.app">hello@culvo.app</a>.</p>
 <h2>The basics</h2>
-<p>Culvo is provided by Onemarsmedia Limited. By using Culvo you agree to these terms and to Apple&#x27;s standard licence agreement for App Store apps (linked below).</p>
+<p>These terms, together with Apple&#x27;s standard licence agreement for App Store apps (linked below), apply when you use Culvo. If they conflict, Apple&#x27;s agreement wins on matters it covers. Please read them; they&#x27;re short.</p>
 <h2>Your photos, your call</h2>
-<p>Culvo helps you decide what to keep and what to delete, but you make every decision, and iOS asks you to confirm before anything is deleted. Deleted photos stay in Recently Deleted for 30 days. We&#x27;re not responsible for photos you choose to delete, so please check before confirming.</p>
+<p>Culvo helps you decide what to keep and what to delete, but you make every decision, and iOS asks you to confirm before anything is deleted. Deleted photos stay in Recently Deleted for 30 days. Please check before you confirm. Culvo&#x27;s best-shot picks are suggestions made automatically on your iPhone and may not match your taste.</p>
 <h2>Free plan</h2>
-<p>Swiping is free. On the free plan you can delete up to 50 photos a day.</p>
+<p>Swiping, keeping and tossing are free. On the free plan you can delete up to 50 photos a day; the count resets at midnight on your iPhone.</p>
 <h2>Culvo Pro</h2>
-<p>Culvo Pro adds unlimited deletes, Bursts and Ready to post. It&#x27;s available as an annual subscription (£24.99 a year, with a 7-day free trial for new subscribers) or a monthly subscription (£4.99 a month). Prices may differ in other countries and are shown before you buy. There is no weekly plan.</p>
-<h2>Payment and renewal</h2>
-<p>Payment is taken by Apple from your Apple ID when you confirm (or when the free trial ends). Subscriptions renew automatically unless you turn off auto-renew at least 24 hours before the end of the current period. You can manage or cancel your subscription any time in Settings → your name → Subscriptions. If you cancel during the free trial, you won&#x27;t be charged.</p>
-<h2>Refunds</h2>
-<p>Refunds are handled by Apple under Apple&#x27;s policies: reportaproblem.apple.com.</p>
-<h2>Contact</h2>
-<p>Questions? Email <a href="mailto:hello@culvo.app">hello@culvo.app</a>.</p>
+<p>Culvo Pro adds unlimited deletes, Bursts and Ready to post. It&#x27;s available as an annual subscription (£24.99 a year, with a 7-day free trial for new subscribers) or a monthly subscription (£4.99 a month). UK prices include VAT. Prices in other countries are set in local currency and always shown by Apple before you buy. There is no weekly plan and there are no other fees.</p>
+<h2>Payment, renewal and cancelling</h2>
+<p>Apple takes payment from your Apple ID when you confirm, or when the free trial ends. Subscriptions renew automatically at the same price unless you turn off auto-renew at least 24 hours before the end of the current period. You can cancel any time in Settings → your name → Subscriptions → Culvo; you keep Pro until the end of the period you&#x27;ve paid for. If you cancel during the free trial, you won&#x27;t be charged. If we ever change the price, Apple will tell you in advance and, where the law requires, ask for your consent.</p>
+<h2>Refunds and your legal rights</h2>
+<p>Payments are processed by Apple, so refunds are requested from Apple. See our cancellations and refunds page. Nothing in these terms affects your legal rights as a consumer. Under UK law, digital content must be as described, fit for purpose and of satisfactory quality; if it isn&#x27;t, you&#x27;re entitled to a repair, replacement or refund.</p>
+<h2>Fair use</h2>
+<p>Please don&#x27;t copy, resell, reverse-engineer or interfere with the app, or use it for anything unlawful.</p>
+<h2>Ownership</h2>
+<p>Your photos are yours; we never get any rights in them. The Culvo name, logo, app and its design belong to Onemarsmedia Limited.</p>
+<h2>Changes to Culvo</h2>
+<p>We may update Culvo to improve it or fix problems. If we make a change that takes away a paid feature you rely on, we&#x27;ll tell you first and you can cancel; where the law requires, you&#x27;ll get a refund for the unused part of your subscription.</p>
+<h2>Our responsibility to you</h2>
+<p>If we break these terms, we&#x27;re responsible for loss you suffer that is a foreseeable result of that. We&#x27;re not responsible for loss that isn&#x27;t foreseeable, for business losses (Culvo is for personal use), or for photos you choose to delete after confirming. Nothing in these terms limits our liability for death or personal injury caused by our negligence, for fraud, or for anything else that the law doesn&#x27;t allow us to limit.</p>
+<h2>Law and disputes</h2>
+<p>These terms are governed by the law of England and Wales. You can bring a claim in the courts of England and Wales, or, if you live in Scotland or Northern Ireland, in your local courts. If you live in the EU, you also keep the protection of your own country&#x27;s mandatory consumer laws. If something goes wrong, email us first and we&#x27;ll try to sort it out.</p>
+<h2>Changes to these terms</h2>
+<p>If we change these terms, we&#x27;ll update this page and the date below, and tell you in the app if the change is important.</p>
 <h2>Licence</h2>
 <p><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple's standard licence agreement</a></p>
-<footer>Onemarsmedia Limited · Last updated 1 October 2026<br>
-<a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms of use</a> · <a href="../support/">Support</a></footer>
 </main>
+<footer>Onemarsmedia Limited, a private limited company registered in England and Wales (company number 16127972, VAT number GB 519 7870 47), registered office 196 Ash Grove, Hounslow, England, TW5 9DT<br>Last updated 2 October 2026<br>
+<nav aria-label="Legal"><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../refunds/">Refunds</a> · <a href="../cookies/">Cookies</a> · <a href="../accessibility/">Accessibility</a> · <a href="../support/">Support</a></nav></footer>
 </body>
 </html>
