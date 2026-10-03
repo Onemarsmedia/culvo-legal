@@ -74,7 +74,7 @@ PAGE = """<!doctype html>
 {extra}
 </main>
 <footer>{company_details}<br>Last updated {updated}<br>
-<nav aria-label="Legal"><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../refunds/">Refunds</a> · <a href="../cookies/">Cookies</a> · <a href="../accessibility/">Accessibility</a> · <a href="../support/">Support</a></nav></footer>
+<nav aria-label="Legal"><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../refunds/">Refunds</a> · <a href="../cookies/">Cookies</a> · <a href="../accessibility/">Accessibility</a> · <a href="../support/">Support</a> · <a href="../updates/">Updates</a></nav></footer>
 </body>
 </html>
 """
@@ -97,8 +97,10 @@ SUPPORT = [
     # Using Culvo
     ("What is Culvo?", "An iPhone app that cleans your camera roll by swiping. Post it or toss it."),
     ("How does it work?", "Culvo shows your photos one at a time, newest first. Swipe right to keep, left to toss. Tossed photos wait in a toss pile until you delete them, and Undo takes back your last swipe."),
-    ("What is Bursts?", "Bursts finds series of near-identical shots, like the 12 photos you took to get one good one. Culvo picks the best shot on your iPhone, and you choose to keep the best and toss the rest. Part of Culvo Pro."),
-    ("What is Ready to post?", "Photos you keep go into a “Culvo – Ready to post” album in your Photos app, so your best shots are in one place. In Culvo Pro you can pick some and share them straight to Instagram, TikTok or anywhere else."),
+    ("What is Biggest first?", "Biggest first shows your largest photos and videos first, so a few swipes clear the most space. Free users can try the first 10 cards; the rest is part of Culvo Pro."),
+    ("What is Similar?", "Similar finds bursts and near-identical shots, like the 12 photos you took to get one good one. Culvo picks the best shot on your iPhone, and you choose to keep the best and toss the rest. Part of Culvo Pro."),
+    ("What is Ready to post?", "Everything you keep goes into a “Culvo – Ready to post” album in your Photos app, so your keepers are in one place. In Culvo Pro you can pick some and share them straight to Instagram, TikTok or anywhere else."),
+    ("I deleted photos but my storage didn't change.", "iOS keeps deleted photos in Recently Deleted for 30 days. Open Photos, tap Collections, then Recently Deleted, then Select and Delete All to get the space back. Culvo shows these steps after every delete."),
     ("Can I clear out just screenshots?", "Yes. Tap Screenshots at the top to sort only your screenshots: receipts, memes, old chats."),
     ("Will Culvo remember where I left off?", "Yes. Photos you've already sorted don't come back, and your toss pile is saved. When you've been through everything, tap Start over to go again."),
     # Your photos
@@ -123,7 +125,24 @@ SUPPORT = [
     body="\n".join(f"<h2>{html.escape(h)}</h2>\n<p>{t}</p>" for h, t in SUPPORT),
     extra="", company=values["company"], company_details=html.escape(values["companyDetails"]), updated=updated))
 
+# Updates page, from the same list the app shows in About > What's new (Culvo/Updates.swift).
+updates_swift = (ROOT / "Culvo" / "Updates.swift").read_text()
+releases = re.findall(r'Release\(version: "([^"]+)", name: "([^"]+)", highlights: \[(.*?)\]\)', updates_swift, re.S)
+blocks = []
+for i, (version, name, body) in enumerate(releases):
+    items = re.findall(r'"((?:[^"\\]|\\.)*)"', body)
+    current = ' <span class="tag">Current</span>' if i == 0 else ""
+    blocks.append(f"<h2>{html.escape(name)}</h2>\n<p class=\"ver\">Version {html.escape(version)}{current}</p>\n<ul>"
+                  + "".join(f"<li>{html.escape(t)}</li>" for t in items) + "</ul>")
+(SITE / "updates").mkdir(exist_ok=True)
+(SITE / "updates" / "index.html").write_text(PAGE.format(
+    title="What's new",
+    body='<p>Every Culvo version, newest first.</p>\n' + "\n".join(blocks),
+    extra='<style>ul { color: var(--muted); padding-left: 20px; } li { margin: 6px 0; } .ver { font-size: 14px; } '
+          '.tag { background: var(--lime); color: #0B0B0C; border-radius: 99px; padding: 2px 8px; font-weight: 700; font-size: 12px; margin-left: 6px; }</style>',
+    company=values["company"], company_details=html.escape(values["companyDetails"]), updated=updated))
+
 (SITE / "index.html").write_text(
     '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=https://culvo.app">'
     '<title>Culvo</title><a href="https://culvo.app">culvo.app</a>\n')
-print("Built privacy/, terms/, refunds/, cookies/, accessibility/ and support/")
+print("Built privacy/, terms/, refunds/, cookies/, accessibility/, support/ and updates/")
