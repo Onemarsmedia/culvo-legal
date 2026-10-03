@@ -98,7 +98,7 @@ SUPPORT = [
     ("What is Culvo?", "An iPhone app that cleans your camera roll by swiping. Post it or toss it."),
     ("How does it work?", "Culvo shows your photos one at a time, newest first. Swipe right to keep, left to toss. Tossed photos wait in a toss pile until you delete them, and Undo takes back your last swipe."),
     ("What is Biggest first?", "Biggest first shows your largest photos and videos first, so a few swipes clear the most space. Free users can try the first 10 cards; the rest is part of Culvo Pro."),
-    ("What is Similar?", "Similar finds bursts and near-identical shots, like the 12 photos you took to get one good one. Culvo picks the best shot on your iPhone, and you choose to keep the best and toss the rest. Part of Culvo Pro."),
+    ("What is Similar?", "Similar finds bursts and near-identical shots, like the 12 photos you took to get one good one. Culvo suggests the best shot, worked out on your iPhone, and you choose to keep the best and toss the rest. Part of Culvo Pro."),
     ("What is Ready to post?", "Everything you keep goes into a “Culvo – Ready to post” album in your Photos app, so your keepers are in one place. In Culvo Pro you can pick some and share them straight to Instagram, TikTok or anywhere else."),
     ("I deleted photos but my storage didn't change.", "iOS keeps deleted photos in Recently Deleted for 30 days. Open Photos, tap Collections, then Recently Deleted, then Select and Delete All to get the space back. Culvo shows these steps after every delete."),
     ("Can I clear out just screenshots?", "Yes. Tap Screenshots at the top to sort only your screenshots: receipts, memes, old chats."),
@@ -110,7 +110,7 @@ SUPPORT = [
     ("I use iCloud Photos. Anything I should know?", "Culvo works with iCloud Photos, and photos stored only in iCloud are downloaded so you can see them. Deleting a photo removes it from every device that uses iCloud Photos, just like deleting it in the Photos app."),
     ("Why does Culvo need access to my photos?", "To show them to you one by one. With limited access, Culvo can only sort the photos you have selected."),
     # Culvo Pro
-    ("Is Culvo free?", "Yes. Swiping and deleting are free with no daily limit. Culvo Pro adds Biggest first, Best of the burst and Ready to post: £24.99 a year with a 7 day free trial, or £4.99 a month."),
+    ("Is Culvo free?", "Yes. Swiping and deleting are free with no daily limit. Culvo Pro adds Biggest first, Similar (best of the burst) and Ready to post: £24.99 a year with a 7 day free trial, or £4.99 a month."),
     ("How do I cancel my subscription?", "Open Settings on your iPhone, tap your name, then Subscriptions, then Culvo, then Cancel Subscription."),
     ("I already paid. How do I get Pro back on a new phone?", "In Culvo, tap the culvo. logo at the top, then Restore purchases."),
     ("Is there a weekly plan?", "No, and there never will be."),
